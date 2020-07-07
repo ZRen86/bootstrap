@@ -16,6 +16,7 @@ $(function () {
     afterEach: function () {
       $.fn.alert = $.fn.bootstrapAlert
       delete $.fn.bootstrapAlert
+      $('#qunit-fixture').html('')
     }
   })
 
@@ -55,7 +56,7 @@ $(function () {
         '</div>'
     var $alert = $(alertHTML).appendTo('#qunit-fixture').bootstrapAlert()
 
-    assert.notEqual($('#qunit-fixture').find('.alert').length, 0, 'element added to dom')
+    assert.notStrictEqual($('#qunit-fixture').find('.alert').length, 0, 'element added to dom')
 
     $alert
       .one('closed.bs.alert', function () {
